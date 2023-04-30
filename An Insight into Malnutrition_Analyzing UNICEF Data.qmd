@@ -1,0 +1,449 @@
+---
+title: "An Insight into Malnutrition_Analyzing UNICEF Data"
+author: "Nishigandha Desai"
+date: "05/29/2023"
+format: html
+execute: 
+  echo: false
+  warning: false
+  message: false
+editor: 
+ markdown: 
+   wrap: 72
+---
+
+------------------------------------------------------------------------
+
+## INTRODUCTION
+
+Childhood malnutrition is a major public health concern around the
+world, with many children suffering from undernutrition and obesity.
+
+[Malnutrition]{style="color: blue;"} is defined as "***a state of
+nutrition in which a deficiency or excess (or imbalance) of energy,
+protein, and other nutrients causes measurable adverse effects on
+tissue/body form (body shape, size, and composition) and function and
+clinical outcome***" (World Health Organization, 2019).
+
+A child's brain, body, and immune system grow and develop rapidly during
+the first [five years]{style="color: blue;"} of life, and good nutrition
+is critical to ensuring that this growth and development occurs
+normally. Malnutrition during this period can have long-term effects on
+a child's health, cognitive development, and future productivity, which
+can last into adulthood. Furthermore, children under the age of five are
+especially vulnerable to malnutrition because their bodies are still
+developing and they have higher nutrient needs relative to their body
+size than older children and adults. As a result, addressing
+malnutrition in children under the age of five is critical for ensuring
+healthy development and future well-being.
+
+In this report, we will look at the [prevalence of BMI for age \<-1
+SD]{style="color: red;"} in children under the age of five in different
+countries between the years 1991-2020. Using data from UNICEF indicators
+and metadata, we will visualize different factors that have affected
+child malnutrition.
+
+## 25 COUNTRIES WITH HIGHER BMI OBS. VALUE \<- 1 SD
+
+A BMI-for-age less than -1 standard deviation indicates that the child
+is underweight. High observation values for BMI \<- 1 SD in children
+under age 5 years are concerning, as they can have serious long-term
+health consequences and can impact the overall health and well-being of
+a population.
+
+![](1.Top%2025%20Countries%20with%20the%20BMI%20Value%20less%20than%201%20SD.png)
+
+From the world Map Plot, we can see that most of the African and a few
+countries in Asian and South America have high observation value. The 25
+countries shown on the map have high prevalence of under-nutrition among
+children under the age of 5. What can be inferred:
+
+*-* Countries may have inadequate access to nutritious food, clean
+water, sanitation, and healthcare services, which can contribute to
+under-nutrition.
+
+*-* Under-nutrition in early childhood can lead to long-term health
+consequences, including stunted growth, weakened immune systems, and
+developmental delays.
+
+*-* Addressing under-nutrition in these countries should be a priority
+for policymakers and stakeholders to ensure children have a healthy
+growth and development.
+
+## Population & Life Expectancy by Observed Value
+
+The world population has increased in the last few decades and it
+estimated to keep growing in future. We have reached 8 Billion mark with
+India and China being the highly populated countries.
+
+![](2.%20Population%20and%20Life%20Expectancy%20by%20Observed%20Value.png)
+
+From the above plot, we can see that Population and Life expectancy have
+a positive slope. Prominently, in the developing countries, due to
+growing economy, medical advancement and changing lifestyle.
+
+## Time Series Chart of Obs. Value for Country by Time Period
+
+A time series chart can show how the the trend has changed over a
+certain period of time. In this current graph, the number of observed
+values in the year 1991 to 2020 have been plotted to find some trends
+and analyse it further.
+
+![](3.%20Time%20Series%20Chart%20of%20Obs.%20Value%20for%20Country%20by%20Time%20Period.png)As
+can be inferred from the scatter plot, We can see a drop in the number
+of observation values in the year 2020 compared to previous years.
+
+Awareness among countries and governments have played a major role here.
+Policies like Breastfeeding Promotion, Food Fortification, Nutrition
+Education, School Feeding Programs, Agricultural and Food production
+Policies and Social protection have helped reduce the number of
+Malnourished children around the world.
+
+## Smooth Trend Line on the Time Series Chart
+
+By plotting a Smooth Trend line, we can see that the observed values had
+a peak in the years 2000 and 2010 but then it starts to reduce later
+till 2020. As mentioned above, the policies have helped reduce
+malnutrition significantly.
+
+![](4.%20Time%20Series%20Chart%20of%20Obs.%20Value%20with%20Smooth%20Trend%20Lin.png)
+
+## Bar Graph Plot showing 20 countries with the lowest observed Values
+
+The following Bar graph shows the bottom 20 countries with the lowest
+observed values from the UNICEF Data. Over the years, **SDG Goal 2. Zero
+Hunger** has been considered to have played a major role in reducing
+malnutrition.
+
+![](5.%2020%20Countries%20with%20the%20Lowest%20Obs.%20Value.png)
+
+## How can we accelerate these Programs and Policies to reduce Malnutrition?
+
+1.  Increase funding: Adequate funding is necessary for implementing
+    effective programs to tackle malnutrition. Governments,
+    international organizations, and donors should allocate more
+    resources towards nutrition programs.
+
+2.  Empower women and girls: Improving the nutrition status of women and
+    girls is critical to breaking the cycle of malnutrition. Efforts
+    should be made to promote girls' education, increase their access to
+    healthcare, and empower women through income-generating activities.
+
+3.  Improve access to nutritious food: Access to nutritious food is
+    crucial to combat malnutrition. Governments should invest in
+    programs that promote food security, such as subsidized food
+    programs, school feeding programs, and community gardens.
+
+4.  Strengthen health systems: Health systems play a critical role in
+    delivering nutrition services. Governments should prioritize the
+    strengthening of health systems, including the training of
+    healthcare workers and the improvement of infrastructure and
+    equipment.
+
+5.  Raise awareness: Raising awareness about the consequences of
+    malnutrition and the importance of proper nutrition is crucial to
+    accelerating progress. Governments should invest in public education
+    campaigns that promote healthy eating habits and increase awareness
+    about the importance of good nutrition.
+
+![](Zero%20Hunger.png){fig-align="center"}
+
+---------------------------------------------The End of
+Report-------------------------------
+
+## R Code For all my Plots:
+
+## #Install and load the following packages
+
+install.packages("tidyverse")
+
+library(tidyverse)
+
+install.packages("sf")
+
+library(sf)
+
+install.packages("rnaturalearth")
+
+library(rnaturalearth)
+
+install.packages("lwgeom")
+
+library(lwgeom)
+
+install.packages("dplyr")
+
+library(dplyr)
+
+install.packages("readr")
+
+library(readr)
+
+install.packages("tidyr")
+
+library(tidyr)
+
+\# Import the unicef_indicator_2.csv file
+
+data \<- read_csv("unicef_indicator_2.csv")
+
+\# Clean and transform the data
+
+clean_data \<- data %\>%
+
+drop_na() %\>%
+
+filter(!is.na(obs_value) & obs_value \>= 0)
+
+## #1. World Map Plot Visualization
+
+\# Filter for the top 25 countries with the highest total_obs_value
+
+top_25 \<- clean_data %\>%
+
+group_by(country) %\>%
+
+summarise(total_obs_value = sum(obs_value)) %\>%
+
+top_n(25, total_obs_value)
+
+#Reloading packages for Map visualization
+
+install.packages("rnaturalearth")
+
+library(rnaturalearth)
+
+library(magrittr)
+
+install.packages("sf")
+
+library(sf)
+
+\# Load World Map dataset and make the geometry valid
+
+world_map \<- rnaturalearth::ne_countries(scale = "medium", returnclass
+= "sf") %\>%
+
+st_make_valid()
+
+install.packages("dplyr")
+
+library(dplyr)
+
+\# Create a lookup table to map country names to ISO A3 codes and join
+with top_25
+
+top_25 \<- top_25 %\>%
+
+left_join(world_map %\>% select(iso_a3, name_long) %\>% distinct(), by =
+c("country" = "name_long"))
+
+\# Merge world_map and top_25 data frames
+
+merged_data \<- left_join(world_map, top_25, by = c("iso_a3" =
+"iso_a3"))
+
+install.packages("ggplot2")
+
+library(ggplot2)
+
+library(sf)
+
+library(dplyr)
+
+\# Plot 25 countries with the highest obs_value
+
+world_map_chart \<- ggplot(merged_data) +
+
+geom_sf(aes(fill = total_obs_value), color = "black") +
+
+scale_fill_gradientn(colors = c("purple", "blue", "green", "orange"),
+na.value = "grey", name = "Obs Value") +
+
+labs(title = "Top 25 Countries with the BMI Value \<- 1 SD") +
+
+theme_void() +
+
+theme(plot.title = element_text(hjust = 0.5))
+
+\# Print the plots
+
+world_map_chart
+
+## #2. Scatter Plot Visualization
+
+\# Load data file
+
+unicef_metadata \<- read.csv("unicef_metadata.csv")
+
+data_selected \<- unicef_metadata %\>%
+
+select(country, Population..total,
+Life.expectancy.at.birth..total..years. )
+
+\# Load the clean data and add a row number column
+
+clean_data\$id \<- 1:nrow(clean_data)
+
+library(dplyr)
+
+\# Join the two datasets on the row number column
+
+data_combined \<- left_join(data_selected, clean_data, by =
+"country",relationship = "many-to-many")
+
+\# Create the scatter plot with linear regression line
+
+ggplot(data_combined, aes(x = Life.expectancy.at.birth..total..years., y
+= Population..total, color = obs_value )) +
+
+geom_point(size = 2) +
+
+geom_smooth(method = "lm", formula = y \~ x, se = FALSE, color =
+"green") +
+
+scale_color_gradient(low = "purple", high = "red", na.value = "black",
+name = "Obs Value") +
+
+ggtitle("Population and Life Expectancy by Observed Value") +
+
+xlab("Life Expectancy at Birth (Years)") +
+
+ylab("Total Population (Numbers)") +
+
+theme_minimal()
+
+## #3. Time Series Plot Visualization
+
+\# Filter data for specific time periods
+
+time_periods \<- c("1991","1995", "2000", "2005", "2010","2015","2020")
+
+#clean the filtered data for selected time period
+
+clean_data_filtered \<- clean_data %\>%
+
+filter(time_period %in% time_periods)
+
+\# Print message to inform user about filtered time periods
+
+message("Data filtered for the following time periods:",
+paste(time_periods, collapse = ","))
+
+\# Create the time series chart with facets for time period
+
+ggplot(clean_data_filtered, aes(x = time_period , y = obs_value , group
+=country, color = time_period )) +
+
+geom_line() +
+
+facet_wrap(\~ indicator, ncol = 3) +
+
+ggtitle("Time Series Chart of Obs. Value for Country by Time Period") +
+
+xlab("Time Period (Years)") +
+
+ylab("Observed Values (Unit)") +
+
+theme_bw()
+
+\# Visualization for Time Series Chart with a Smooth Trend Line
+
+ggplot(clean_data_filtered, aes(x = time_period, y = obs_value, group =
+time_period, color = time_period)) +
+
+geom_line() +
+
+facet_wrap(\~ indicator, ncol = 3) +
+
+geom_smooth(aes(group = 1), method = "loess", se = TRUE, color =
+"black") +
+
+ggtitle("Time Series Chart of Obs. Value with Smooth Trend Line") +
+
+xlab("Time Period (Years)") +
+
+ylab("Observed Value (Unit)") +
+
+theme_bw()
+
+## #4. Bar Plot Visualization
+
+\# Assuming \`clean_data\` is a dataset that has already been processed
+and cleaned
+
+bottom_30 \<- clean_data %\>%
+
+group_by(country) %\>%
+
+summarise(mean_obs_value = mean(obs_value)) %\>%
+
+arrange(mean_obs_value) %\>%
+
+head(30)
+
+library(dplyr)
+
+\# Sort merged_data by total_obs_value in ascending order and select the
+first 15 rows
+
+bottom_30 \<- merged_data %\>%
+
+arrange(total_obs_value) %\>%
+
+head(30)
+
+\# Unique datasets in the data
+
+length(unique(data_selected\$country))
+
+\# View the bottom 20 countries
+
+nrow(bottom_30)
+
+bottom_30
+
+head(bottom_30, n = 20)
+
+library(ggplot2)
+
+\# Create bar plot with gradient fill and text labels
+
+\# Define color scale
+
+my_colors \<- rainbow(length(bottom_15\$total_obs_value))
+
+\# Define modified theme with left-aligned plot title
+
+my_theme \<- theme_minimal() +
+
+theme(plot.title = element_text(hjust = 0))
+
+\# Create bar chart with modified theme
+
+bar_chart \<- ggplot(bottom_30, aes(x = reorder(country,
+total_obs_value), y = total_obs_value, fill = total_obs_value)) +
+
+geom_bar(stat = "identity") +
+
+coord_flip() +
+
+scale_fill_gradientn(colors = my_colors) +
+
+labs(title = "20 Countries with the Lowest Obs. Value",
+
+x = "Country Names",
+
+y = "Obvservation Values") +
+
+my_theme +
+
+geom_text(aes(label = round(total_obs_value, 1)), hjust = -0.2, size =
+3, color = "black")
+
+bar_chart
+
+\# The End of Code\
+\
+\
+\
